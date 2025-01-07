@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #ffcccc, #ffe6e6);
+    height: 100vh;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Adicionado para ajuste em telas menores */
+    max-width: 400px; /* Limite de largura em telas maiores */
+    margin: 0 auto; /* Centraliza no meio da tela */
+}
+
+.image {
+    max-width: 100%; /* Ajusta a largura da imagem para telas menores */
+    height: auto; /* Mantém a proporção */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 1.2em; /* Texto ajustado para telas menores */
+    color: #cc0033;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    font-size: 1.5em; /* Ajustado para telas menores */
+    color: #990000;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: float 8s linear infinite;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-100vw, -100vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) { /* Tablets */
+    .message {
+        font-size: 1em; /* Texto menor */
+    }
+
+    .countdown {
+        font-size: 1.2em; /* Texto menor */
+    }
+
+    .container {
+        max-width: 90%; /* Usa a maior parte da largura */
+    }
+}
+
+@media (max-width: 480px) { /* Celulares */
+    .message {
+        font-size: 0.9em; /* Texto menor */
+    }
+
+    .countdown {
+        font-size: 1em; /* Texto ainda menor */
+    }
+
+    .container {
+        padding: 15px; /* Menos espaçamento interno */
+        border-radius: 10px; /* Bordas menores */
+    }
+}
